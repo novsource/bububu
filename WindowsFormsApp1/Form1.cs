@@ -41,6 +41,7 @@ namespace WindowsFormsApp1
                 }        
             }  
             ShowInfo();
+            CheckTurn();
             ShowTurn();
         }
 
@@ -76,88 +77,92 @@ namespace WindowsFormsApp1
 
         public void ShowTurn()
         {
+            Button button = new Button();
+            if (spaceObjects.Count == 2)
+            {
+                button5.Text = "Пустая ячейка";
+                button5.Image = null;
+                return;
+            }
+            if (spaceObjects.Count == 1)
+            {
+                button4.Text = "Пустая ячейка";
+                button4.Image = null;
+                return;
+            }
+            if (spaceObjects.Count == 0)
+            {
+                button3.Text = "Пустая ячейка";
+                button3.Image = null;
+                return;
+            }
             for (int i = 0; i < 3; i++)
             {
-                switch (i) {
-                    case 0:
-                        if (spaceObjects.Count == 0)
-                        {
-                            button3.Text = "Пустая ячейка";
-                            button3.Image = null;
-                            break;
-                        }
-                        if (this.spaceObjects[i] is Planet)
-                        {
-                            button3.Text = "Планета";
-                            button3.Image = Properties.Resources.Planet;
-                        }
-                        else if (this.spaceObjects[i] is Star)
-                        {
-                            button3.Text = "Звезда";
-                            button3.Image = Properties.Resources.Star;
-                        }
-                        else if (this.spaceObjects[i] is Comet)
-                        {
-                            button3.Text = "Комета";
-                            button3.Image = Properties.Resources.Comet;
-                        }
-                        break;
-                    case 1:
-                        if (spaceObjects.Count <= 1)
-                        {
-                            button4.Text = "Пустая ячейка";
-                            button4.Image = null;
-                            break;
-                        }
-                        if (this.spaceObjects[i] is Planet)
-                        {
-                            button4.Text = "Планета";
-                            button4.Image = Properties.Resources.Planet;
-                        }
-                        else if (this.spaceObjects[i] is Star)
-                        {
-                            button4.Text = "Звезда";
-                            button4.Image = Properties.Resources.Star;
-                        }
-                        else if (this.spaceObjects[i] is Comet)
-                        {
-                            button4.Text = "Комета";
-                            button4.Image = Properties.Resources.Comet;
-                        }
-                        break;
-                    case 2:
-                        if (spaceObjects.Count <= 2)
-                        {
-                            button5.Text = "Пустая ячейка";
-                            button5.Image = null;
-                            break;
-                        }
-                        if (this.spaceObjects[i] is Planet)
-                        {
-                            button5.Text = "Планета";
-                            button5.Image = Properties.Resources.Planet;
-                        }
-                        else if (this.spaceObjects[i] is Star)
-                        {
-                            button5.Text = "Звезда";
-                            button5.Image = Properties.Resources.Star;
-                        }
-                        else if (this.spaceObjects[i] is Comet)
-                        {
-                            button5.Text = "Комета";
-                            button5.Image = Properties.Resources.Comet;
-                        }
-                        break;
+                if (spaceObjects[i] is Planet)
+                {
+                    button.Text = "Планета";
+                    button.Image = Properties.Resources.Planet;
+                }
+                else if (spaceObjects[i] is Star)
+                {
+                    button.Text = "Звезда";
+                    button.Image = Properties.Resources.Star;
+                }
+                else if (spaceObjects[i] is Comet)
+                {
+                    button.Text = "Комета";
+                    button.Image = Properties.Resources.Comet;
+                }
+                    button3.Text = button4.Text;
+                    button3.Image = button4.Image;
+                    button4.Text = button5.Text;
+                    button4.Image = button5.Image;
+                    button5.Text = button.Text;
+                    button5.Image = button.Image;
+            }
+        }
+        
+        public void CheckTurn()
+        {
+            Button button = new Button();
+            if (button3.Text == "Пустая ячейка" && button4.Text == button3.Text && spaceObjects.Count != 0)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (spaceObjects[i] is Planet)
+                    {
+                        button.Text = "Планета";
+                        button.Image = Properties.Resources.Planet;
+                    }
+                    else if (spaceObjects[i] is Star)
+                    {
+                        button.Text = "Звезда";
+                        button.Image = Properties.Resources.Star;
+                    }
+                    else if (spaceObjects[i] is Comet)
+                    {
+                        button.Text = "Комета";
+                        button.Image = Properties.Resources.Comet;
+                    }
+                    if (i == 0)
+                    {
+                        button3.Text = button.Text;
+                        button3.Image = button.Image;
+                    }
+                    else if (i == 1)
+                    {
+                        button4.Text = button.Text;
+                        button4.Image = button.Image;
+                    }
+                    else if (i == 2)
+                    {
+                        button5.Text = button.Text;
+                        button5.Image = button.Image;
+                    }
                 }
             }
-         }
-        
-        public void CreateButton()
-        {
-
         }
-
-
+        
         private void label2_Click(object sender, EventArgs e)
         {
 

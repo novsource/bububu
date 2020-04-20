@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
         public static Random rand = new Random(); 
 
         public virtual String GetInfo()
-        {
+        {                                                                                                                                                                       
             return "Я объект :3";
         }
 
@@ -88,7 +88,7 @@ namespace WindowsFormsApp1
         public override String GetInfo()
         {
             var str = "Я звезда *-*";
-            str += String.Format("\nПлотность: {0}", Density);
+            str += String.Format("\nПлотность: {0} кг/м3", Density);
             str += String.Format("\nЦвет: " + this.Color);
             str += String.Format("\nТемпература: {0} по Цельсию", this.Temperature);
             return str;
