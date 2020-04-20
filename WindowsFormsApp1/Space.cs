@@ -9,8 +9,8 @@ namespace WindowsFormsApp1
 {
     public class Space 
     {
-        public static Random rand = new Random(); 
-
+        public static Random rand = new Random();
+        public float Distance = rand.Next() % 100000;
         public virtual String GetInfo()
         {                                                                                                                                                                       
             return "Я объект :3";
@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
             str += String.Format("\nРадиус: {0} км", this.Radius);
             str += String.Format("\nНаличине атмосферы: {0}", this.Atmosphere);
             str += String.Format("\nСила притяжения: {0} (Н*м^2)/кг^2", this.Gravity);
+            str += String.Format("\nУдаленность от Земли: {0} км", this.Distance);
             return str;
         }
 
@@ -62,6 +63,7 @@ namespace WindowsFormsApp1
             var str = "Я комета <3";
             str += String.Format("\nМеня зовут: " + this.Name);
             str += String.Format("\nПериод: {0} лет", this.Period);
+            str += String.Format("\nУдаленность от Земли: {0} км", this.Distance);
             return str;
         }
 
@@ -91,6 +93,7 @@ namespace WindowsFormsApp1
             str += String.Format("\nПлотность: {0} кг/м3", Density);
             str += String.Format("\nЦвет: " + this.Color);
             str += String.Format("\nТемпература: {0} по Цельсию", this.Temperature);
+            str += String.Format("\nУдаленность от Земли: {0} км", this.Distance);
             return str;
         }
 
