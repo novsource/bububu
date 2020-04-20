@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
             this.spaceObjects.Clear();
 
             var rand = new Random();
-            
+
             for (int i = 0; i < 10; i++)
             {
                 switch (rand.Next() % 3)
@@ -33,13 +33,13 @@ namespace WindowsFormsApp1
                         this.spaceObjects.Add(Planet.Generation());
                         break;
                     case 1:
-                        this.spaceObjects.Add(Star.Generation()) ;
+                        this.spaceObjects.Add(Star.Generation());
                         break;
                     case 2:
                         this.spaceObjects.Add(Comet.Generation());
                         break;
-                }        
-            }  
+                }
+            }
             ShowInfo();
             CheckTurn();
             ShowTurn();
@@ -70,7 +70,7 @@ namespace WindowsFormsApp1
                     CometsCount += 1;
                 }
             }
-            txtCountPlanets.Text += String.Format("{0}",PlanetsCount); 
+            txtCountPlanets.Text += String.Format("{0}", PlanetsCount);
             txtCountStars.Text += String.Format("{0}", StarsCount);
             txtCountComets.Text += String.Format("{0}", CometsCount);
         }
@@ -113,14 +113,16 @@ namespace WindowsFormsApp1
                     button.Text = "Комета";
                     button.Image = Properties.Resources.Comet;
                 }
-                    button3.Text = button4.Text;
-                    button3.Image = button4.Image;
-                    button4.Text = button5.Text;
-                    button4.Image = button5.Image;
-                    button5.Text = button.Text;
-                    button5.Image = button.Image;
+                button3.Text = button4.Text;
+                button3.Image = button4.Image;
+                button4.Text = button5.Text;
+                button4.Image = button5.Image;
+                button5.Text = button.Text;
+                button5.Image = button.Image;
             }
         }
+    
+        
         
         public void CheckTurn()
         {
