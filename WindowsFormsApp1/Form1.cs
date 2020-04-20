@@ -121,9 +121,9 @@ namespace WindowsFormsApp1
                 button5.Image = button.Image;
             }
         }
-    
-        
-        
+
+
+
         public void CheckTurn()
         {
             Button button = new Button();
@@ -164,7 +164,7 @@ namespace WindowsFormsApp1
                 }
             }
         }
-        
+
         private void label2_Click(object sender, EventArgs e)
         {
 
