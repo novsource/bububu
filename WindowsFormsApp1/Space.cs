@@ -15,22 +15,21 @@ namespace WindowsFormsApp1
         {                                                                                                                                                                       
             return "Я объект :3";
         }
-
     }
 
     //Класс под планеты
     public class Planet : Space
     {
+        public enum AtmosphereValue { есть, отсутствует, частично};
         public float Radius = 0;
-        public bool Atmosphere = true;
+        public AtmosphereValue Atmosphere = AtmosphereValue.есть;
         public float Gravity = 0;
-        public Bitmap Image = Properties.Resources.Planet;
 
         public override String GetInfo()
         {
             var str = "Я планета @_@";
             str += String.Format("\nРадиус: {0} км", this.Radius);
-            str += String.Format("\nНаличине атмосферы: {0}", this.Atmosphere);
+            str += String.Format("\nНаличие атмосферы: {0}", this.Atmosphere);
             str += String.Format("\nСила притяжения: {0} (Н*м^2)/кг^2", this.Gravity);
             str += String.Format("\nУдаленность от Земли: {0} км", this.Distance);
             return str;
@@ -41,22 +40,18 @@ namespace WindowsFormsApp1
             return new Planet
             {
                 Radius = rand.Next() % 10000,
-                Atmosphere = rand.Next(2) == 0,
+                Atmosphere = (AtmosphereValue)rand.Next(2),
                 Gravity = rand.Next() % 1000
             };
-        }
-
-       
+        } 
     }
         
-    public enum NameType {Mellish, Brucks, Daniel, Bennet, Eclipse}
-
     //Класс под кометы
     public class Comet : Space
     {
+        public enum NameType { Mellish, Brucks, Daniel, Bennet, Eclipse }
         public NameType Name = NameType.Mellish;
         public int Period = 0;
-        public Bitmap Image = Properties.Resources.Comet;
 
         public override String GetInfo()
         {
@@ -77,15 +72,14 @@ namespace WindowsFormsApp1
         }
     }
 
-    public enum ColorsTypes {Yellow, Black, Blue, White}
-
     //Класс под звезды
     public class Star : Space
     {
+        public enum ColorsTypes { Желтый, Черный, Синий, Белый }
+
         public float Density = 0;
-        public ColorsTypes Color = ColorsTypes.Yellow;
+        public ColorsTypes Color = ColorsTypes.Желтый;
         public float Temperature = 0;
-        public Bitmap image = Properties.Resources.Star;
 
         public override String GetInfo()
         {

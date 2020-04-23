@@ -41,7 +41,6 @@ namespace WindowsFormsApp1
                 }
             }
             ShowInfo();
-            CheckTurn();
             ShowTurn();
         }
 
@@ -77,6 +76,7 @@ namespace WindowsFormsApp1
 
         public void ShowTurn()
         {
+            CheckTurn();
             Button button = new Button();
             if (spaceObjects.Count == 2)
             {
@@ -121,8 +121,6 @@ namespace WindowsFormsApp1
                 button5.Image = button.Image;
             }
         }
-
-
 
         public void CheckTurn()
         {
